@@ -1,6 +1,5 @@
 ---
 layout: page
-title: About
 ---
 
 <img style="max-width: 500px; width: 100%;" src="/assets/ian3.jpeg"></img>

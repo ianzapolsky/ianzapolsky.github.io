@@ -4,7 +4,7 @@ title: "visualizing Buffon's needles"
 author: "ian zapolsky"
 ---
 
-<script src="/js/painter.js" type="text/javascript"></script>
+<script src="/js/src/painter.js" type="text/javascript"></script>
 
 ## Groundwork
 

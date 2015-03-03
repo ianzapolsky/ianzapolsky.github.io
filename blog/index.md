@@ -1,10 +1,11 @@
 ---
-layout: default
+layout: default 
+title: Blog
 ---
 
 <div class="home">
 
-  <h1>Posts</h1>
+  <h1 style="font-size:42px;font-weight:300;">Blog</h1>
 
   <ul class="posts">
     {% for post in site.posts %}

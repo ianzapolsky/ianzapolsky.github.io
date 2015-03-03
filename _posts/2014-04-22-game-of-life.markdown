@@ -6,7 +6,7 @@ author: "ian zapolsky"
 
 <link rel="stylesheet" href="/css/life.css" type="text/css">
 
-<script src="/js/life.js" type="text/javascript"></script>
+<script src="/js/src/life.js" type="text/javascript"></script>
 <script>$(document).ready(function () { life.init(25) });</script>
 
 ## The Game
