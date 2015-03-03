@@ -1,0 +1,153 @@
+---
+layout: post
+title: "analog clock with d3"
+author: "ian zapolsky"
+---
+
+<script src="/js/lib/d3.js" type="text/javascript"></script>
+<script src="/js/clock.js" type="text/javascript"></script>
+
+## What is d3?
+
+[d3](http://d3js.org/) is a dope data visualization library written in Javascript. It 
+allows you to create complex scalable vector graphics based on many different types of data
+and abstracts away almost all of the markup boilerplate associated with creating SVGs by hand. 
+It also gracefully handles datasets that change over time, making the representation of dynamic data a breeze.
+
+I've been playing around with d3 lately, and I find it fun and intuitive 
+to use. Below is my first fully realized d3 project, an analog clock
+that works by repeatedly requesting the time in Javascript, and then updating the
+angle of each of the clock hands with the new data. 
+
+<svg class="centered chart"></svg>
+
+## d3 Clock
+
+This is actually two nested clocks, one conventional seconds/minutes/hours
+clock that is updated every second, and one millisecond clock that is updated
+every millisecond. This periodic updating is handled with two Javascript intervals,
+and looks like this:
+
+{% highlight javascript %}
+// update hour, minute, second hands every second
+setInterval(function () {
+  renderTime(getTime());
+}, 1000);
+
+// update millisecond hand every millisecond
+setInterval(function () {
+  renderMilli(getMilli());
+}, 1);
+{% endhighlight %}
+
+I want to dive inside these render functions, just to show you how easy d3 makes
+it to bind data to the DOM. First, the function `getTime()` simply returns an
+array of JSON representations of the current time units. Something like this:
+
+{% highlight javascript %}
+var getTime = function() {
+  var currentTime = new Date();
+  return data = [
+    {
+      "units": "seconds",
+      "numeric": currentTime.getSeconds()
+    }, {
+      "units": "minutes",
+      "numeric": currentTime.getMinutes()
+    }, {
+      "units": "seconds",
+      "numeric": currentTime.getHours() + currentTime.getMinutes() / 60
+    }
+  ];
+};
+{% endhighlight %}
+
+Note that we add the current minutes divided by 60 to our hours value, otherwise our hour hand 
+would point straight at the current hour, even during the 59th minute of that hour, instead of sweeping
+slowly across the hour as minutes pass.
+
+Now, we can explain `renderTime()`, knowing that `renderMilli()` works in
+exactly the same way. `renderTime()` takes the array returned by `getTime()`
+and binds it to three "clockhands," which are really SVG path elements circumscribed
+within an SVG circle.
+
+d3 provides powerful constructs that help with this kind of data binding, the most
+important of which is the scale. A scale, given an input domain `x` and an output 
+range `y`, will return a function that converts an input in `x` to an output value 
+in `y`. In our case, because we are dealing with angles around a circle, our scale 
+functions take an input and return an output value between 0 and 2 \* pi. This looks like this:
+
+{% highlight javascript %}
+// declare minutes scale, which takes as input a value between 0 and 59 + 59/60 
+// and returns a value between 0 and 2 * pi
+var scaleMins = d3.scale.linear().domain([0, 59 + 59/60]).range([0, 2 * Math.PI]);
+
+// convertedVal = pi, because d3 is smart
+var convertedVal = scaleMins(30);
+{% endhighlight %}
+
+Now, we can simply pipe our time data into its corresponding d3 scale to attain the
+appropriate angles for the clockhands, which solves what is probably the most conceptually
+difficult part of this project. 
+
+d3 also provides a component to take an angle in radians and return a [path](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d) 
+string describes its arc. That code is provided below, again for the minutes hand. Note that `d3.svg.arc()` returns 
+a function, which can then be called with the result from our minute scale defined above.
+
+{% highlight javascript %}
+var minuteArc = d3.svg.arc()
+    .innerRadius(0)
+    .outerRadius(clockRad - 20)
+    .startAngle(function (d) { return scaleMins(d.numeric); })
+    .endAngle(function (d) { return scaleMins(d.numeric); });
+{% endhighlight %}
+
+Putting these ideas together, our render function looks like this, using d3's built-in
+selector, data binding, and transition handlers. The `d` attribute here is the just a
+string containing a series of path descriptions, which is the way SVG vectors are specified.
+
+{% highlight javascript %}
+var renderTime = function(data) {
+  clockGroup.selectAll('.clockhand')
+      .data(data)
+    .transition()
+    .attr('d', function (d) {
+      if (d.unit === 'seconds')
+        return secondArc(d);
+      else if (d.unit === 'minutes')
+        return minuteArc(d);
+      else
+        return hourArc(d);
+    });
+};
+{% endhighlight %}
+
+## Syncing our clocks
+
+One final note. You'll notice above that the second hand and the millisecond hand
+are not perfectly synced. The second hand *should* change only when the millisecond
+hand is pointing straight up. You'll recall that the way we set our clock in
+motion was with the following intervals:
+
+{% highlight javascript %}
+// update hour, minute, second hands every second
+setInterval(function () {
+  renderTime(getTime());
+}, 1000);
+
+// update millisecond hand every millisecond
+setInterval(function () {
+  renderMilli(getMilli());
+}, 1);
+{% endhighlight %}
+
+Our clocks are out of sync because they are being controlled by different intervals,
+which are being called at slightly different times. The reason for this is that I want
+the second hand to "tick," moving one second at a time, instead of moving constantly. If
+I were to update the data of the standard clock every millisecond, I would get a second
+hand that moves continuously.
+
+I'm still working on a solution to this problem. What I have learned in my initial 
+experimentation is that, perhaps predictably, a millisecond interval created with 
+Javascript's `setInterval()` function will *not* reliably fire every millisecond. 
+There is simply no way to guarantee this performance across all clients.

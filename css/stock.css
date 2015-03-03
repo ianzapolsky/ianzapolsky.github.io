@@ -1,0 +1,45 @@
+/* line 1, ../../sass/stock.sass */
+.centered {
+  float: none;
+  display: block;
+  margin: auto;
+}
+
+/* line 5, ../../sass/stock.sass */
+.left-align {
+  text-align: left;
+}
+
+/* line 8, ../../sass/stock.sass */
+.right-align {
+  text-align: right;
+}
+
+/* line 11, ../../sass/stock.sass */
+.center-align {
+  text-align: center;
+}
+
+/* line 14, ../../sass/stock.sass */
+.cleared {
+  clear: left;
+}
+
+/* line 17, ../../sass/stock.sass */
+.hidden {
+  display: none;
+}
+
+/* line 20, ../../sass/stock.sass */
+.django-messages {
+  padding: 10px 0px 1px 0px;
+  margin-bottom: 20px !important;
+  background-color: rgba(0, 0, 255, 0.3);
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+
+/* line 27, ../../sass/stock.sass */
+.inline {
+  display: inline-block;
+}

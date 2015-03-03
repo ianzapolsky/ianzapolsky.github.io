@@ -3,8 +3,15 @@ layout: page
 title: About
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+<img style="max-width: 500px; width: 100%;" src="/assets/ian3.jpeg"></img>
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+Hi, my name is Ian Zapolsky. I am a current senior at Columbia University in New York City and I love programming, music, and building stuff on the web. 
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+I am majoring in Computer Science with a special concentration in Jazz Studies.
+
+My favorite hobby is jazz piano. You can check out some of my recent musical projects on my [bandcamp page](https://ianzapolsky.bandcamp.com/) or via the embedded player below.
+
+<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2291872569/size=large/bgcol=ffffff/linkcol=7137dc/tracklist=false/artwork=small/transparent=true/" seamless><a href="http://ianzapolsky.bandcamp.com/album/sketches">Sketches by Ian Zapolsky</a></iframe>
+
+
+

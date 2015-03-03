@@ -1,0 +1,26 @@
+#options {
+  display: block;
+  margin: auto;
+  text-align: center;
+} 
+
+input[type="button"] {
+  display: inline-block;
+  margin: 10px;
+}
+
+#yourHand, #dealerHand, #feedback {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+#feedback {
+  margin-top: 20px;
+}
+
+.playingCard {
+  margin: 20px 10px;
+  float: none;
+  display: inline-block;
+}

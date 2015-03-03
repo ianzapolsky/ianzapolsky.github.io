@@ -1,0 +1,33 @@
+/* 
+  life.css
+  Description: css files for Javascript implementation of Conway's Game of Life
+  Author: Ian Zapolsky (11/23/13)
+*/
+
+#grid {
+  width:500px;
+  height:500px;
+  border:2px solid #000;
+  margin-top:25px;
+  -webkit-box-sizing:initial;
+  -moz-box-sizing:initial;
+  box-sizing:initial;
+}
+
+.box {
+  width:18px;
+  height:18px;
+  border:1px solid #eee;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  float:left;
+  -webkit-box-sizing:initial;
+  -moz-box-sizing:initial;
+  box-sizing:initial;
+}
+
+.alive { background-color:#000; }
+
+.dead  { background-color:#fff; }
+
+  
