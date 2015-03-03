@@ -66,7 +66,7 @@ $(document).ready(function() {
       .text('School Schootings in the United States');
 
   // Grab data
-  d3.text('http://www.ianzapolsky.com/guncharts/shootings/data.txt', function(rawData) {
+  d3.text('http://ianzapolsky.com/guncharts/shootings/data.txt', function(rawData) {
     var data = [];
     var rows = d3.dsv(' ', 'text/plain').parseRows(rawData);
     rows.forEach(function(row) {
