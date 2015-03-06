@@ -27,7 +27,7 @@ It is abysmal, though perhaps unavoidable, that humans by their nature require
 such grisly evidence of their errors before correcting them. Yet, if 
 this is the case, we may be on the path to a brighter future in the long run.
 
-I whipped up this sobering graph this morning using data I found on [wikipedia](http://en.wikipedia.org/wiki/List_of_school_shootings_in_the_United_States).
+I whipped up a sobering graph this morning using data I found on [wikipedia](http://en.wikipedia.org/wiki/List_of_school_shootings_in_the_United_States).
 
 <svg class="chart shootings"></svg>
 
@@ -48,7 +48,7 @@ regulation head-on in the very near future out of sheer necessity.
 When discussing this drastic uptake in school shootings, it is tempting to blame the
 troubling amount of violent material to be found in American culture.
 From video games to blockbuster movies to the everyday news, violence and its 
-glorification seem to be nearly omnipresent in the modern American consciousness.
+glorification seems to be nearly omnipresent in the modern American consciousness.
 
 However, I counter the assertion that this cultural aspect is the cause for our
 high rate of child-related gun violence by inviting a comparison between the United
@@ -68,7 +68,7 @@ that to the [101.05 firearms owned per 100 people in the United States](http://w
 
 I argue that the significant discrepancy in gun control policy between the two
 cultures is the primary reason for the immense gap in the total number of gun 
-deaths recorded in each country. Despite similar pop culture fixations with violence,
+deaths recorded in each country. Despite similar pop culture fixations on violence,
 the [United Kingdom had 146 gun deaths in 2011, while the United States had 32,163](http://www.gunpolicy.org/firearms/compare/192/total_number_of_gun_deaths/194). 
 Normalized to account for the disparity in total population between the countries,
 this comes out to 2.3 gun deaths per 1 million people in the U.K., and 103.7 gun
@@ -76,11 +76,11 @@ deaths per 1 million people in the U.S.
 
 ## What can be done
 
-To me, the answer seems simple and clear. In our country we have made the purchase 
-and sale of an extremely dangerous device, one whose sole purpose is to eviscerate 
+To me, the answer seems extremely simple. In our country we have made the purchase 
+and sale of a highly dangerous device, one whose sole purpose is to eviscerate 
 and destroy whatever it is trained upon, whether that be an inanimate target, a wild 
-animal, or a high school student, *very*, *very* easy. If it was less easy to
-buy guns, I think we would see the number of people who end up owning them go down,
-and by correlation, the number of poeple who shoot people with them go down as well.
-
+animal, or a high school student, *very*, *very* easy. If it was less easy for average 
+people to buy guns, I think we would see the number of people who end up owning them 
+go down, and by correlation, the number of poeple who shoot people with them go down 
+as well.
 

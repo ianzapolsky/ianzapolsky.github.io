@@ -8,7 +8,7 @@ author: "ian zapolsky"
 
 Blackjack is a deceptively complex game. While its portrayal in books and
 movies would have you believe that the game consists merely of "hitting," 
-"standing," and counting cards, there are actually a good deal more possible 
+"standing," and counting cards, there are actually a good deal more 
 variables and decisions that go into playing successfully.
 
 More importantly however, with the advent of computers, people have distilled
