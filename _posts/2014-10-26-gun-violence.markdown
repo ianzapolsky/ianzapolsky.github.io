@@ -6,7 +6,6 @@ author: "ian zapolsky"
 
 <link rel="stylesheet" href="/css/gun-chart.css">
 
-<script src="/js/lib/d3.js"></script>
 <script src="/js/src/gun-chart.js"></script>
 
 ## Motivation

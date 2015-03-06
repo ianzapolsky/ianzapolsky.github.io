@@ -1,5 +1,3 @@
-
-
 var extractYears = function(data) {
   var years = [];
   var yearObjects = [];
