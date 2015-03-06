@@ -4,10 +4,10 @@ title: "gun violence in schools: an American tradition"
 author: "ian zapolsky"
 ---
 
-<link rel="stylesheet" href="/guncharts/chart.css">
+<link rel="stylesheet" href="/css/gun-chart.css">
 
 <script src="/js/lib/d3.js"></script>
-<script src="/guncharts/shootings/index.js"></script>
+<script src="/js/src/gun-chart.js"></script>
 
 ## Motivation
 
@@ -20,7 +20,7 @@ Despite the obvious horror of these events, their proximity in both time and
 space lend them the unique power to galvanize voters in the Seattle region
 behind stricter gun control laws. Indeed, these kinds of events, like Columbine 
 and Sandy Hook before them, might be the only chance our country has in the
-political battle against those whose financial interests are tied so closely
+political battle against those whose financial interests are so closely tied 
 to the loosely regulated manufacture and sale of guns, and those whose sentiments of
 personal freedom are linked with owning them.
 
@@ -33,7 +33,7 @@ I whipped up this sobering graph this morning using data I found on [wikipedia](
 <svg class="chart shootings"></svg>
 
 Alarmingly, while we seem to have had a fairly steady number of school shootings
-between the mid-1800s and 2005, there has been an unmistakable, exponential
+between the mid-1800s and 2005, there has been an unmistakable exponential
 increase since then.
 
 This could be due to a large number of factors, though I doubt anyone would argue
@@ -46,8 +46,8 @@ regulation head-on in the very near future out of sheer necessity.
 
 ## Analogous cultures
 
-When discussing this drastic uptake in school shootings, it is tempting to cite the
-often-troubling amount of violent material to be found in American culture these days. 
+When discussing this drastic uptake in school shootings, it is tempting to blame the
+troubling amount of violent material to be found in American culture.
 From video games to blockbuster movies to the everyday news, violence and its 
 glorification seem to be nearly omnipresent in the modern American consciousness.
 
