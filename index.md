@@ -10,7 +10,7 @@ I am majoring in Computer Science with a special concentration in Jazz Studies.
 
 My favorite hobby is jazz piano. You can check out some of my recent musical projects on my [bandcamp page](https://ianzapolsky.bandcamp.com/) or via the embedded player below.
 
-<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2291872569/size=large/bgcol=ffffff/linkcol=7137dc/tracklist=false/artwork=small/transparent=true/" seamless><a href="http://ianzapolsky.bandcamp.com/album/sketches">Sketches by Ian Zapolsky</a></iframe>
+<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3843758358/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="http://ianzapolsky.bandcamp.com/album/senior-recital">Senior Recital by Ian Zapolsky</a></iframe>
 
 
 
