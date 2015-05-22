@@ -106,11 +106,13 @@ reading from and writing to the text file where the last seen ID is stored.
 {% highlight python %}
 # return all tweets mentioning @BOT_NAME that have been created since latest_id
 def fetch_unseen_mentions(latest_id):
-  return t.search.tweets(q='@'+BOT_NAME, result_type='recent', since_id=latest_id)['statuses']
+  return t.search.tweets(q='@'+BOT_NAME, 
+    result_type='recent', since_id=latest_id)['statuses']
 
 # return the id of the latest tweet mentioning @BOT_NAME
 def fetch_latest_id():
-  return t.search.tweets(q='@'+BOT_NAME, result_type='recent', count=1)['statuses'][0]['id']
+  return t.search.tweets(q='@'+BOT_NAME,
+    result_type='recent', count=1)['statuses'][0]['id']
 
 if __name__ == '__main__':
 
