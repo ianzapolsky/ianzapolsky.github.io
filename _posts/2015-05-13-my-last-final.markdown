@@ -14,7 +14,7 @@ That's when I realized that I didn't have any good way of quickly converting raw
 I've used [Mou][mou] before, which is nice, but its parser lacks some of my favorite features of Github Flavored Markdown, like fenced code blocks.
 Then there's the option of simply pushing my Markdown files up to Github and reading them from there, but that's pretty ineglegant.
 
-With two hours to go before my test, I got obsessed with the idea that there should be an easy way to write notes in Markdown and view them as compiled HTML instantly. 
+With two hours to go before my test, I got obsessed with the idea that there should be an easy way to write notes in Markdown and view them as compiled HTML instantly, without having to manually convert them from the command line using a tool like [pandoc][pandoc]. 
 
 So, I created [marknotes][marknotes], my custom solution for everyday note taking, built for people who spend a lot of time at the terminal.
 Basically, it's a barebones Node/Express.js app exposed to the user via three very simple executable shell scripts.
@@ -32,4 +32,5 @@ So far, it has made the process of taking and mainting notes way more efficient 
 
 [mou]:http://25.io/mou/
 [marknotes]:https://github.com/ianzapolsky/marknotes
+[pandoc]:http://pandoc.org/
 
