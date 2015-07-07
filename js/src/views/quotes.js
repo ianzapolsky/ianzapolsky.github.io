@@ -20,7 +20,8 @@ define([
       'As technology becomes more generic and less expensive, the leverage point becomes more in the people... - <strong>Mark Zuckerberg</strong>', 
       'If things are not failing, you are not innovating enough. - <strong>Elon Musk</strong>',
       "It's better to be a pirate than to join the navy. - <strong>Steve Jobs</strong>",
-      'Violence is the last refuge of the incompetent. - <strong>Salvor Hardin</strong>'
+      'Violence is the last refuge of the incompetent. - <strong>Salvor Hardin</strong>',
+      'There is no art without intention. - <strong>Duke Ellington</strong>'
     ],
   
     seen: [],
