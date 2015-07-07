@@ -9,7 +9,7 @@ define([
     el: '.site-footer',
 
     quotes: [
-      'I think the amount of useful invention that you have is directly proportional to the number of experiments you can do per week per month per year. - <strong>Jeff Bezos</strong>',   
+      'The amount of useful invention you do is directly proportional to the number of experiments you can run per week per month per year. - <strong>Jeff Bezos</strong>',   
       'Premature optimization is the root of all evil. - <strong>Donald Knuth</strong>',
       'Pretend to be completely in control and people will assume that you are. - <strong>Nolan Bushnell</strong>',
       'You can please some of the people, some of the time. - <strong>Steve Jobs</strong>',
@@ -17,10 +17,10 @@ define([
       'The journey is the reward. - <strong>Steve Jobs</strong>',
       "It's not about money... it's the willingness to outwork and outlearn everyone. - <strong>Mark Cuban</strong>",
       "Skate where the puck's going, not where it's been. - <strong>Wayne Gretsky</strong>",
-      "Western notation blocks total absorption in the 'action' playing. - <strong>Cecil Taylor</strong>",
       'As technology becomes more generic and less expensive, the leverage point becomes more in the people... - <strong>Mark Zuckerberg</strong>', 
       'If things are not failing, you are not innovating enough. - <strong>Elon Musk</strong>',
-      "It's better to be a pirate than to join the navy. - <strong>Steve Jobs</strong>"
+      "It's better to be a pirate than to join the navy. - <strong>Steve Jobs</strong>",
+      'Violence is the last refuge of the incompetent. - <strong>Salvor Hardin</strong>'
     ],
   
     seen: [],

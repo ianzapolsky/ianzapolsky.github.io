@@ -4,9 +4,7 @@ layout: page
 
 <img style="max-width: 500px; width: 100%;" src="/assets/ian3.jpeg"></img>
 
-Hi, my name is Ian Zapolsky. I am a current senior at Columbia University in New York City and I love programming, music, and building stuff on the web. 
-
-I am majoring in Computer Science with a special concentration in Jazz Studies.
+Hi, my name is Ian Zapolsky. I currently work as a Software Engineer at <a href="http://www.appnexus.com/">AppNexus</a> in New York City. Before that I studied Computer Science and Jazz at Columbia University. In my free time, I love playing basketball and ultimate frisbee, making music, and building stuff on the web. 
 
 My favorite hobby is jazz piano. You can check out some of my recent musical projects on my [bandcamp page](https://ianzapolsky.bandcamp.com/) or via the embedded player below.
 
