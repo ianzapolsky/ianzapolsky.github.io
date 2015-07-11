@@ -260,6 +260,7 @@ canvas {
 
 .post pre,
 .post code {
+  overflow-x: scroll;
   border: 1px solid #d5d5e9;
   background-color: #eef;
   padding: 8px 12px;
