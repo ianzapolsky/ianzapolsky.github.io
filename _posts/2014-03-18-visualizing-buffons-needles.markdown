@@ -143,7 +143,7 @@ Given these methods we can write up a simulation and visualization of
 this problem for the canvas we were working on earlier. Though not very
 aesthetically pleasing, it actually gives pretty good estimates of pi! 
 (Note that this is just running 500 trials, we would expect the number to come 
-closer to actual pi as we increase the number of trials.)
+much closer to actual pi as we increase the number of trials.)
 
 <button class="btn centered" onclick="painter.buffon('buffon1', false);">click me</button>
 <p id="num-crosses">crosses:</p>
@@ -164,8 +164,8 @@ getRandomX = function () {
 };
 {% endhighlight %}
 
-See the problem? We were flooring the result of our random generation of an x
-coordinate, making it much more likely that it will cross a vertical line,
+See the problem? We were flooring the result of our randomly generated x
+coordinates, making it much more likely that they would cross a vertical line,
 which are located at integer coordinates (multiples of 10 in this instance).
 Boy, that was dumb. When we corrected that issue, our numbers started to look
 a lot more normal.
