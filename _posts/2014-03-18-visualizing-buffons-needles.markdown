@@ -174,8 +174,7 @@ a lot more normal.
 
 By this time it was 5:00am and my buddy and I were tired, so we turned in for
 the night. But I've since gotten to play around with the simulation we built
-and it yields some cool looking devart. Check it out, and feel free to copy
-the code and make your own additions or modifications.
+and it yields some cool looking devart. Check it out!
 
 <button class="btn centered" onclick="painter.buffon('buffon2', true);">click me</button>
 <br>
