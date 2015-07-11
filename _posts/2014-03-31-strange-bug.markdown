@@ -20,13 +20,11 @@ annual tuition its students pay (pardon the ramblings of a disgruntled
 student).
 
 My first step in setting up my Unix environment, as it has become by default 
-ever since I read this [cool article by Github engineer Zach Holman][dotfiles], 
-was to copy my customized dotfiles (.bashrc, .vimrc, etc.) from my local 
-machine to the remote machine so that I could quickly and easily achieve 
-continuity between my setups. To do this I use [scp][scp], or secure copy, 
-which is a program that uses the ssh protocol to copy files between hosts on a 
-network. [ssh][ssh] is another program that allows you to connect and login to 
-a remote machine over a network. 
+ever since I read this [article by Zach Holman][dotfiles], was to copy my 
+customized dotfiles (`.bashrc`, `.vimrc`, etc.) from my local machine to the remote 
+machine so that I could quickly and easily achieve continuity between my 
+setups. To do this I used [scp][scp], or secure copy, which is a program that 
+uses the ssh protocol to copy files between hosts on a network. 
 
 My scp command looked like this, using the "-r" option to recursively copy the 
 entire directory called ".dotfiles":
@@ -47,12 +45,12 @@ Hmm...
 ## Digging
 
 When I ssh'ed into my account on the Columbia Linux cluster, I found that the 
-.dotfiles directory had definitely not been copied across the network from my 
+`.dotfiles` directory had definitely not been copied across the network from my 
 local machine. I was puzzled, and my confusion was compounded by the message I 
 was recieving about setting up some database configuration. What the hell was 
 that?!
 
-Then I opened the .bashrc on my remote machine and, lo and behold, I found the
+Then I opened the `.bashrc` on my remote machine and, lo and behold, I found the
 following two lines, leftovers from some old project I had worked on for class
 more than a year ago:
 
@@ -64,24 +62,24 @@ echo 'done'
 
 This is one of those bugs you hope isn't true. You *really* hope that the 
 success of a network file transfer program does not depend on whether you have 
-a print statement in the .bashrc file of your destination computer. 
+a print statement in the `.bashrc` file of your destination computer. 
 
 But, indeed, [it does][bug].
 
 ## WAT?
 
 But why is this true? It turns out that scp expects to recieve protocol data 
-via the stdout channel, and when we have echo statements in our .bashrc, we 
-inject new stuff into this channel when .bashrc is automatically run on 
+via the stdout channel, and when we have echo statements in our `.bashrc`, we 
+inject new stuff into this channel when `.bashrc` is automatically run on 
 connection with the ssh client, thus completely screwing up the data transfer. 
 Seems like a massive oversight in the design of scp right?
 
 Well, there are a couple very easy workarounds for this problem that actually 
-give us a bit of insight into different ways Unix shells can be used, namely 
-interactively and non-interactively. If we wrap all the echo statements in our 
-.bashrc in an if statement as shown below, they will only be executed when our 
-ssh session is interactive, or when there is a human on the other end of the 
-line (instead of, say, an instance of the scp program).
+give us a bit of insight into the different ways Unix shells can be used, 
+namely interactively and non-interactively. If we wrap all the echo statements
+in our `.bashrc` in an if statement as shown below, they will only be executed 
+when our ssh session is interactive, or when there is a human on the other end 
+of the line (instead of, say, an instance of the scp program).
 
 ```
 if [ "$SSH_TTY" ]
@@ -90,9 +88,9 @@ then
 fi
 ```
 
-Now, when scp uses ssh to remotely connect to your machine, the .bashrc file
-will check for the existence of the environment variable SSH\_TTY, which is 
-just set to the name of the tty pseudo-terminal that has been allocated to 
+Now, when scp uses ssh to remotely connect to your machine, the `.bashrc` file
+will check for the existence of the environment variable `SSH_TTY`, which is 
+set to the name of the tty pseudo-terminal that has been allocated to 
 handle interactive input from the keyboard for the shell session. Shell 
 sessions initiated by scp will not have this environment variable, so we're 
 safe from any echo statements ruining our day.
