@@ -20,8 +20,8 @@ either thrive or perish. Each cell on the grid can be alive (black) or dead
 
 You can click on cells to manually alternate their state. Turn some black
 to seed the grid with a starting population. Then click the "Start"
-button to begin simulating the passing of time, measured in arbitrary "years,"
-according to the rules of the game, which are as follows: 
+button to begin simulating the passing of time according to the rules of the 
+game, which are as follows: 
 
 - Any live cell with less than 2 live adjacent cells dies (under-population). 
 - Any live cell with greater than 3 live adjacent cells dies (over-population).
@@ -48,8 +48,8 @@ Model (hint: it's not fast).
 
 My first shot at building this game had one central flaw: I tightly coupled 
 the display of the game with the state of the game. I stored the information 
-that told me whether a given cell in my grid was dead or alive in the CSS of 
-the cell itself. Furthermore, I did not cache any DOM objects, meaning that 
+that told me whether a given cell in my grid was dead or alive in the CSS class
+of the cell itself. Furthermore, I did not cache any DOM objects, meaning that 
 every time I wanted to check the state of a given cell I had to traverse to it 
 accross the entire DOM and then inspect its class attribute.
 
@@ -87,21 +87,19 @@ selector. So that's 12800 DOM traversals for each simulated step in the game.
 Needless to say, my original implementation was slow. 
 
 So I fell into a bad trap during my first go round with this game. But that's 
-OK! I often find that reading about the best practices out of a book or some
+OK! I often find that reading about best practices in a book or some
 documentation just isn't enough to convince me of why some things should never 
 be done. It makes for a more memorable lesson if you fall face first into the 
 problems that the best practices are there to help you avoid. Only then do you 
 truly understand the value of their existence.
 
 I ended up completely overhauling my implementation of the game. Instead of 
-storing the game state in the CSS classes of my individual cells, I rewrote the 
-program to represent the game board state internally with a multidimensional 
-array. This made things much faster. I also cached the grid element from the 
+storing the game state in the CSS classes of the individual grid cells, I 
+rewrote the program to represent the state internally with a multidimensional 
+array. This made things much faster. I also cached the game grid from the 
 DOM so that I could cut down on traversal time slightly when I *did* have to 
-use the jQuery selector. Finally, I tried my best to separate code that 
-controlled the state of the game and the logic behinds its rules, and 
-manipulation of the DOM 
-itself.
+use the jQuery selector. Finally, I separated code that controlled the state of
+the game and the logic behinds its rules, and manipulation of the DOM itself.
 
 The result is what you see on this page, the [code][code] for which is up on 
 github. 
