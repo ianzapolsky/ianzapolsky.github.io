@@ -41,7 +41,7 @@ infinite loop, repeatedly checking to see if someone new had mentioned the bot
 and then sleeping for 60 seconds at the end of each iteration to avoid going
 over the Twitter API request quota. Every 720 loops (the number of minutes in
 12 hours), the program would tweet out a piece of art. 
-However, this solution seemed inelegant to me, and furthermore, if my server 
+However, this solution was inelegant because if my server 
 had a service interruption, or for some reason the bot process was killed, then
 all functionality would be lost without me knowing about it.
 
