@@ -1,6 +1,6 @@
 name: ian zapolsky dot com
 markdown: redcarpet
-pygments: true
+highlighter: true
 description: "Ian Zapolsky's homepage and blog."
 url: "ianzapolsky.com"
-permalink: /posts/:title
+permalink: /posts/:title/
