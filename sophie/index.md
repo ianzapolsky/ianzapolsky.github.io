@@ -26,6 +26,7 @@ title: Dogs for Sophie
     'dogs with clothes',
     'puppies with clothes',
     'dogs wearing costumes',
+    'puppies wearing costumes',
     'adorable puppies',
     'small white dogs',
     'small white puppies'
