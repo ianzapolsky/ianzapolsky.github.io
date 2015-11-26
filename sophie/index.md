@@ -25,15 +25,16 @@ title: Dogs for Sophie
     'puppies wearing clothes',
     'dogs with clothes',
     'puppies with clothes',
+    'dogs wearing costumes',
     'adorable puppies',
     'small white dogs',
     'small white puppies'
-  ]; 
+  ];
 
   var page = 0;
 
   function buildImage(result) {
-    
+
     var img = document.createElement('img');
     var div = document.createElement('div');
 
@@ -53,7 +54,7 @@ title: Dogs for Sophie
       div.appendChild(img);
       container.appendChild(div);
     };
-  
+
     img.src = result.url;
   }
 
