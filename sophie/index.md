@@ -11,7 +11,7 @@ title: Dogs for Sophie
 
   var nextQuery = null;
 
-  var loadImages = function(searchTerm, next=false) {
+  var loadImages = function(searchTerm, next) {
     if (next) {
       if (nextQuery) {
         $.get('https://www.googleapis.com/customsearch/v1?q='+searchTerm+'&start='+nextQuery.startIndex+'cx=012813865030616110872:i1ij5jt2494&imgColorType=color&searchType=image&key=AIzaSyDYsBFujVbyB4SyE3_8atE9tP28ITCvmR0', function(result) {
@@ -88,7 +88,7 @@ title: Dogs for Sophie
   $(document).ready(function() {
     var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
     console.log(searchTerm);
-    loadImages(searchTerm);
+    loadImages(searchTerm, false);
 
     $('#more').click(function() {
       loadImages(searchTerm, true);
