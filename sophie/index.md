@@ -7,12 +7,15 @@ title: Dogs for Sophie
 <link rel="stylesheet" href="/css/stock.css" type="text/css">
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
 
-  google.load('search', '1');
-
-  var imageSearch;
+  var loadImages = function(searchTerm) {
+    $.get('https://www.googleapis.com/customsearch/v1?q='+searchTerm+'&cx=012813865030616110872:i1ij5jt2494&imgColorType=color&searchType=image&key=AIzaSyDYsBFujVbyB4SyE3_8atE9tP28ITCvmR0', function(result) {
+      result.items.forEach(function(item) {
+        buildImage(item);
+      }
+    });
+  };
 
   var searchTerms = [
     'cute puppies',
@@ -31,8 +34,6 @@ title: Dogs for Sophie
     'small white dogs',
     'small white puppies'
   ];
-
-  var page = 0;
 
   function buildImage(result) {
 
@@ -56,31 +57,21 @@ title: Dogs for Sophie
       container.appendChild(div);
     };
 
-    img.src = result.url;
+    img.src = result.link;
   }
 
   function searchComplete() {
-
-    console.log(imageSearch.cursor.pages);
-    //imageSearch.gotoPage(2);
 
     imageSearch.results.forEach(function (result) {
       buildImage(result);
     });
   }
 
-  function onLoad() {
-    imageSearch = new google.search.ImageSearch();
-    imageSearch.setResultSetSize(8);
-    imageSearch.setSearchCompleteCallback(this, searchComplete, null);
+  $(document).ready(function() {
     var searchTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
     console.log(searchTerm);
-    imageSearch.execute(searchTerm);
-  }
+    loadImages(searchTerm);
 
-  google.setOnLoadCallback(onLoad);
-
-  $(document).ready(function() {
     $('#more').click(function() {
       if (page === 8) {
         alert('there are no more puppies :(');
