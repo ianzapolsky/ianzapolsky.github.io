@@ -13,7 +13,7 @@ title: Dogs for Sophie
     $.get('https://www.googleapis.com/customsearch/v1?q='+searchTerm+'&cx=012813865030616110872:i1ij5jt2494&imgColorType=color&searchType=image&key=AIzaSyDYsBFujVbyB4SyE3_8atE9tP28ITCvmR0', function(result) {
       result.items.forEach(function(item) {
         buildImage(item);
-      }
+      });
     });
   };
 
