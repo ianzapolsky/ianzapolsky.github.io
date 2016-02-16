@@ -16,6 +16,9 @@ title: Dogs for Sophie
       if (nextQuery) {
         $.get('https://www.googleapis.com/customsearch/v1?q='+searchTerm+'&start='+nextQuery.startIndex+'&cx=012813865030616110872:i1ij5jt2494&imgColorType=color&searchType=image&key=AIzaSyDYsBFujVbyB4SyE3_8atE9tP28ITCvmR0', function(result) {
           nextQuery = result.queries.nextPage ? result.queries.nextPage[0] : null;
+          if (nextQuery.startIndex >= 100) {
+            nextQuery = null;
+          }
           result.items.forEach(function(item) {
             buildImage(item);
           });
@@ -28,6 +31,9 @@ title: Dogs for Sophie
     else {
       $.get('https://www.googleapis.com/customsearch/v1?q='+searchTerm+'&cx=012813865030616110872:i1ij5jt2494&imgColorType=color&searchType=image&key=AIzaSyDYsBFujVbyB4SyE3_8atE9tP28ITCvmR0', function(result) {
         nextQuery = result.queries.nextPage ? result.queries.nextPage[0] : null;
+        if (nextQuery.startIndex >= 100) {
+          nextQuery = null;
+        }
         result.items.forEach(function(item) {
           buildImage(item);
         });
