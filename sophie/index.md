@@ -9,13 +9,14 @@ title: Dogs for Sophie
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-  var nextQuery = null;
+  var nextQueryStart = null;
 
   var loadImages = function(searchTerm, next) {
     if (next) {
       if (nextQuery) {
-        $.get('https://www.googleapis.com/customsearch/v1?q='+searchTerm+'&start='+nextQuery['startIndex']+'cx=012813865030616110872:i1ij5jt2494&imgColorType=color&searchType=image&key=AIzaSyDYsBFujVbyB4SyE3_8atE9tP28ITCvmR0', function(result) {
-          nextQuery = result.queries.nextPage ? result.queries.nextPage : null;
+        $.get('https://www.googleapis.com/customsearch/v1?q='+searchTerm+'&start='+nextQueryStart+'cx=012813865030616110872:i1ij5jt2494&imgColorType=color&searchType=image&key=AIzaSyDYsBFujVbyB4SyE3_8atE9tP28ITCvmR0', function(result) {
+          debugger;
+          nextQueryStart = result.queries.nextPage ? result.queries.nextPage.startIndex : null;
           result.items.forEach(function(item) {
             buildImage(item);
           });
@@ -27,7 +28,8 @@ title: Dogs for Sophie
     // first query
     else {
       $.get('https://www.googleapis.com/customsearch/v1?q='+searchTerm+'&cx=012813865030616110872:i1ij5jt2494&imgColorType=color&searchType=image&key=AIzaSyDYsBFujVbyB4SyE3_8atE9tP28ITCvmR0', function(result) {
-        nextQuery = result.queries.nextPage ? result.queries.nextPage : null;
+        debugger;
+        nextQueryStart = result.queries.nextPage ? result.queries.nextPage.startIndex : null;
         result.items.forEach(function(item) {
           buildImage(item);
         });
