@@ -14,7 +14,7 @@ title: Dogs for Sophie
   var loadImages = function(searchTerm, next) {
     if (next) {
       if (nextQuery) {
-        $.get('https://www.googleapis.com/customsearch/v1?q='+searchTerm+'&start='+nextQuery.startIndex+'cx=012813865030616110872:i1ij5jt2494&imgColorType=color&searchType=image&key=AIzaSyDYsBFujVbyB4SyE3_8atE9tP28ITCvmR0', function(result) {
+        $.get('https://www.googleapis.com/customsearch/v1?q='+searchTerm+'&start='+nextQuery['startIndex']+'cx=012813865030616110872:i1ij5jt2494&imgColorType=color&searchType=image&key=AIzaSyDYsBFujVbyB4SyE3_8atE9tP28ITCvmR0', function(result) {
           nextQuery = result.queries.nextPage ? result.queries.nextPage : null;
           result.items.forEach(function(item) {
             buildImage(item);
