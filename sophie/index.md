@@ -72,13 +72,13 @@ title: Dogs for Sophie
     console.log(searchTerm);
     loadImages(searchTerm);
 
-    $('#more').click(function() {
-      if (page === 8) {
-        alert('there are no more puppies :(');
-      } else {
-        imageSearch.gotoPage(++page);
-      }
-    });
+    //$('#more').click(function() {
+    //  if (page === 8) {
+    //    alert('there are no more puppies :(');
+    //  } else {
+    //    imageSearch.gotoPage(++page);
+    //  }
+    //});
   });
 
 </script>
