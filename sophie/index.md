@@ -9,7 +9,7 @@ title: Dogs for Sophie
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-  var nextQuery = null
+  var nextQuery = null;
 
   var loadImages = function(searchTerm, next=false) {
     if (next) {
