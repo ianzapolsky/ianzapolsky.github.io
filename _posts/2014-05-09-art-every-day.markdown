@@ -13,7 +13,7 @@ Sometimes I look up the names later when I'm bored, but this wasn't happening
 as much as I would have liked it to. 
 
 What I really wanted was a service that could non-obtrusively deliver me some 
-art, every day, from a set of artists that I designate.
+art, every day, from this list of artists.
 
 So, I built a Twitter bot.
 
@@ -37,39 +37,32 @@ a piece of art generated in the same way as above.
 ## Infinite Loops and CRON
 
 My original implementation of this bot was a Python program that ran on an
-infinite loop, repeatedly checking to see if someone new had mentioned the bot 
+infinite loop, repeatedly checking to see if someone new had mentioned the bot
 and then sleeping for 60 seconds at the end of each iteration to avoid going
 over the Twitter API request quota. Every 720 loops (the number of minutes in
 12 hours), the program would tweet out a piece of art. 
-However, this solution was inelegant because if my server 
-had a service interruption, or for some reason the bot process was killed, then
-all functionality would be lost without me knowing about it.
+However, this solution had drawbacks; if my server ever went down, or for some
+reason the bot process was killed, then all functionality would be lost without
+me knowing it.
 
 So instead, I broke the posting and responding functionalities of the bot out 
-into two separate scripts, `bot.py` and `responder.py`, both of which I run as 
-CRON jobs. 
+into two separate scripts, `bot.py` and `responder.py`, both of which run as 
+CRON jobs.
 
-I run `bot.py` once every 12 hours (`0 */12 * * *` for those who speak CRON), 
-and it simply picks a random artist from an artists array, a random
-message from a messages array, and builds a tweet with that information.
-However, the script is one-dimensional. It can tweet out random art but it 
-can't respond to tweets in which it is mentioned, which was a functionality I 
-knew I wanted.
-
-So instead, I wrote a second script, `responder.py`, which stores the ID of the 
-last seen mention on Twitter of the bot in a text file in the current 
-directory. I run `responder.py` once every minute using CRON (`* * * * *`) and 
-it repeatedly calls up a list of the most recent tweets that mention the bot, 
-checks them against the ID of the last seen tweet stored in the text file, and 
-responds to any new ones, updating the last seen tweet ID when it finishes.
+`bot.py` runs every tweleve hours, and simply tweets out a piece of art.
+`responder.py` runs every minute, and stores the ID of the last seen tweet that
+mentions the bot in a text file. Every time it wakes up, it pulls every tweet
+that has been sent since the tweet stored in the text file, and responds, overwriting
+the last seen tweet in the file with the most ID when it finishes.
 
 ## Build Your Own
 
 So there you have it. These two simple Python scripts create an interactive 
-Twitter program that users can play around with.
+Twitter bot that users can play around with.
 
 Please follow [@art\_err\_day][aed] if you're on Twitter, and feel free to fork
-my [code][code] and build out a bot that serves your own collection of artists.
+my [code][code] and build out a bot that serves your own collection of artists,
+or anything else you want!
 
 [aed]:https://twitter.com/art_err_day
 [code]:https://github.com/ianzapolsky/art_err_day
