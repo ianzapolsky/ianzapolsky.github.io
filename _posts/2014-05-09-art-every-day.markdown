@@ -4,7 +4,7 @@ title: "art every day"
 author: "ian zapolsky"
 ---
 
-## Use Case
+## Use case
 
 I've got a note on my phone of about 100 artists that, up until a couple weeks
 ago, I had no idea what to do with. Every time I'm in an art museum I 
@@ -17,7 +17,7 @@ art, every day, from this list of artists.
 
 So, I built a Twitter bot.
 
-## Art Every Day
+## Art every day
 
 [@art\_err\_day][aed] is a Twitter account that I made to serve as my own
 personal curated art feed. Every 12 hours it randomly selects an artist from a 
@@ -34,7 +34,7 @@ What's more, if I'm feeling lonely, I can mention [@art\_err\_day][aed] at any
 time in a tweet of my own, and it will tweet back at me within the minute with 
 a piece of art generated in the same way as above.
 
-## Infinite Loops and CRON
+## Infinite loops and CRON
 
 My original implementation of this bot was a Python program that ran on an
 infinite loop, repeatedly checking to see if someone new had mentioned the bot
@@ -55,7 +55,7 @@ mentions the bot in a text file. Every time it wakes up, it pulls every tweet
 that has been sent since the tweet stored in the text file, and responds, overwriting
 the last seen tweet in the file with the most ID when it finishes.
 
-## Build Your Own
+## Build your own
 
 So there you have it. These two simple Python scripts create an interactive 
 Twitter bot that users can play around with.
