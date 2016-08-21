@@ -16,13 +16,11 @@ define([
       'The best way to predict the future is to invent it. - <strong>Alan Kay</strong>',
       'The journey is the reward. - <strong>Steve Jobs</strong>',
       "It's not about money... it's the willingness to outwork and outlearn everyone. - <strong>Mark Cuban</strong>",
-      "Skate where the puck's going, not where it's been. - <strong>Wayne Gretsky</strong>",
       'As technology becomes more generic and less expensive, the leverage point becomes more in the people... - <strong>Mark Zuckerberg</strong>',
       'If things are not failing, you are not innovating enough. - <strong>Elon Musk</strong>',
       "It's better to be a pirate than to join the navy. - <strong>Steve Jobs</strong>",
       'Violence is the last refuge of the incompetent. - <strong>Salvor Hardin</strong>',
-      'There is no art without intention. - <strong>Duke Ellington</strong>',
-      'Some people, when confronted with a problem, think "I know, I\'ll use regular expressions." Now they have two problems. - <strong>Jamie Zawinski</strong>'
+      'There is no art without intention. - <strong>Duke Ellington</strong>'
     ],
 
     seen: [],
