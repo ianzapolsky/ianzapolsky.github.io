@@ -6,7 +6,7 @@ author: "ian zapolsky"
 
 ## y u bleep?
 
-The Amazon Echo is a product that is so easy to make fun of in its darkest hours, for being useless, broken, or both, and yet so unarguably _dope_ in its best moments.
+The Amazon Echo is a product that is so easy to make fun of in its darkest hours, for being useless, broken, or both, and yet is so unarguably _dope_ in its best moments.
 For example, the other night a friend and I were hanging out in my apartment and our conversation strayed to music – specifically how influential a specific recording had been on our own playing.
 The song in question was “Lush Life,” by Billy Strayhorn, as performed by Ella Fitzgerald and Oscar Peterson on her legendary 1957 album _Ella Fitzgerald Sings the Duke Ellington Song Book_.
 
@@ -28,7 +28,7 @@ This leads me to suspect that instead of simply scanning a list of blocked words
 This would be pretty clever, so clever in fact that it actually makes me doubt the theory.
 I don’t think Amazon cares that much if people get their Echos to swear at them.
 
-But if the Echo does do a phonetic comparison, it seems that there are disconnects between the way it says certain letters, and the way it thinks those letters are pronounced.
+But if the Echo _does_ do a phonetic comparison, it seems that there are disconnects between the way it says certain letters, and the way it thinks those letters are pronounced.
 Take the umlaut for example.
 That’s the two dots above a vowel, most commonly U, that you see in German, Hungarian, and other Eastern European languages.
 It’s supposed to make a sort of “UE” sound. The German words fürer and über are two examples, but the Echo pronounces it just like a normal “U.”
