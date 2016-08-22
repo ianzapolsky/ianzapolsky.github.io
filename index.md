@@ -3,6 +3,20 @@ layout: page
 ---
 
 <style>
+#ian-image {
+  max-width: 100%;
+  float: left;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+@media (max-width: 780px) {
+  #ian-image {
+    float: none;
+    clear: both;
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+}
 #player-container {
   text-align: center;
   width: 100%;
@@ -12,7 +26,9 @@ layout: page
 }
 </style>
 
-<img style="max-width: 440px; float: left; margin-right: 50px; margin-bottom: 50px;" src="/assets/ian_king.jpg"></img>
+<div style="max-width:440px">
+  <img id="ian-image" src="/assets/ian_king.jpg"></img>
+</div>
 
 Hi, my name is Ian Zapolsky.
 I currently work as a Software Engineer at <a href="http://www.appnexus.com/">AppNexus</a> in New York City.
