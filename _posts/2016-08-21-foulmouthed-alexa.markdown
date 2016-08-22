@@ -37,7 +37,7 @@ It also pronounces ï just like a normal “I.”
 So, what happens when you ask Alexa to say “fück, shït, bïtch?”
 
 <audio controls>
-  <source src="/assets/bad_alexa.m4a" type="audio/ogg">
+  <source src="/assets/bad_alexa.m4a" type="audio/mpeg">
 </audio>
 
 Lol. Human 1, machine 0.
