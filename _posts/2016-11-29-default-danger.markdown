@@ -13,7 +13,7 @@ author: "ian zapolsky"
 }
 </style>
 
-This is wrong:
+Here's a bug:
 
 {% highlight golang %}
 func main() {
@@ -50,14 +50,14 @@ func main() {
 }
 {% endhighlight %}
 
-Can you spot the bug?
+Can you spot it?
 Here's a hint:
 
 <img id="ian-image" src="/assets/perf_screenshot.png"></img>
 
 ## the dreaded default case
 
-When you provide a deafult case to a select in Golang, you're giving the program a route to take when the other cases are blocked.
+When you provide a deafult case to a `select` statement in Golang, you're giving the program a route to take when the other cases are blocked.
 
 What we _want_ to happen here is for our program to block on the receive from `channel`.
 While we're blocked, we don't need to do anything, but we want to immediately print something as soon as we receive it from the channel.
