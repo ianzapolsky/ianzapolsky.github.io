@@ -4,7 +4,7 @@ title: "first commit..."
 author: "ian zapolsky"
 ---
 
-## Welcome to my redesigned website and blog!
+## Welcome to my website and blog!
 
 In the past year I've started coding a lot more on my own time and reading a bunch of tech blogs. 
 I began devouring the front pages of [Hacker News][hn] and [/r/programming/][pr] almost every day because I love reading about the amazing stuff people are building all over the world with new technologies. 
