@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "default danger"
+title: "default danger in golang"
 author: "ian zapolsky"
 ---
 
