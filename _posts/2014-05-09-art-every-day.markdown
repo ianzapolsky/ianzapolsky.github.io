@@ -53,7 +53,7 @@ CRON jobs.
 `responder.py` runs every minute, and stores the ID of the last seen tweet that
 mentions the bot in a text file. Every time it wakes up, it pulls every tweet
 that has been sent since the tweet stored in the text file, and responds, overwriting
-the last seen tweet in the file with the most ID when it finishes.
+the last seen tweet in the file with the most recent ID when it finishes.
 
 ## Build your own
 
