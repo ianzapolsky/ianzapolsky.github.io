@@ -32,8 +32,6 @@ For example: "Q1 11:45" converts to 15, because 15 seconds of game time have ela
 I do not make any sort of effort to account for timeouts, pauses after fouls, or even halftime.
 Shots attempted during overtime are also not included in this analysis.
 
-<br></br>
-
 Below is a graph of the players who attempted >= 250 3-point shots and >= 40 “hot" 3-point shots in the 2016-17 season.
 On the X-axis we have the total number of “hot" 3-point shots attempted, and on the Y-axis we have hot/cold differential.
 A positive hot/cold differential means that that player’s “hot" 3-point shooting percentage is better than that player’s “cold" 3-point shooting percentage.
