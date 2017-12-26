@@ -4,24 +4,20 @@ title: "hot and cold"
 author: "ian zapolsky"
 ---
 
-One of the things I like so much about basketball is that, like my first love baseball, there is a wealth of statistics to examine.
-The number of games per season in the NBA is hefty enough to create a large sample size for most players, and the nature of the game has many players attempting many shots.
-This is contrast to soccer, where the majority of players take few or no shots.
-
-
 While watching the Utah Jazz lose to the Golden State Warriors in the first round of the 2017 NBA playoffs, I made a hypothesis that Joe Johnson was one of the 3-point shooters most capable of "getting hot" in the league.
 By "getting hot," I mean that once shots start to fall for Johnson, he gets more confident in himself and begins to perform better.
 My hypothesis was based purely on anecdotal evidence; to confirm or refute my claim I had to try to get a measure of the way localized past performance _within a single game_ impacts future performance in that game for different players.
-
+I decided to isolate my analysis to 3-point shooting.
 
 I downloaded play-by-play data for the 2016-17 NBA season, and then set about calculating the following statistics for all players across all games:
 
   - **Total 3-point percentage**: all 3-point makes / all 3-point attempts (this stat is already tracked, so it served as a nice litmus test for the accuracy of my play-by-play data)
   - **"Hot" 3-point percentage**: percentage of 3-point shots made that were attempted within two minutes of game time after the player's most recently made 3-point shot
-  - **"Cold" 3-point percentage**: percentage of 3-point shots made that were attempted more than two minutes of game time after the player's most recently made 3-point shot
-  - **Hot/Cold Differential**: how much better or worse a player’s "hot" 3-point percentage is compared to his “cold" 3-point percentage ("hot" 3P% - "cold" 3P%)
+  - **"Cold" 3-point percentage**: percentage of 3-point shots made that were attempted _more_ than two minutes of game time after the player's most recently made 3-point shot
+  - **Hot/Cold Differential**: how much better or worse a player’s "hot" 3-point percentage is compared to his "cold" 3-point percentage ("hot" 3P% minus "cold" 3P%)
 
-A quick note about the definition of "game time" as it is used above: in my play-by-play dataset, I get the quarter number and game clock reading with each game event. I converted these data points to a continuous range of seconds, from 0 (Q1 12:00) to 2880 (Q4 00:00), the formula for which is:
+A quick note about the definition of "game time" as it is used above: in my play-by-play dataset, I get the quarter number and game clock reading with each game event.
+I converted these data points to a continuous range of seconds, from 0 ("Q1 12:00") to 2880 ("Q4 00:00"), the formula for which is:
 {% highlight golang %}
     (60 * (12 * (period_number - 1 ))) +
     ((12 * 60) - ((60 * game_clock_minutes) + game_clock_seconds))
@@ -32,25 +28,25 @@ For example: "Q1 11:45" converts to 15, because 15 seconds of game time have ela
 I do not make any sort of effort to account for timeouts, pauses after fouls, or even halftime.
 Shots attempted during overtime are also not included in this analysis.
 
-Below is a graph of the players who attempted >= 250 3-point shots and >= 40 “hot" 3-point shots in the 2016-17 season.
-On the X-axis we have the total number of “hot" 3-point shots attempted, and on the Y-axis we have hot/cold differential.
-A positive hot/cold differential means that that player’s “hot" 3-point shooting percentage is better than that player’s “cold" 3-point shooting percentage.
+Below is a graph of the players who attempted >= 250 3-point shots and >= 40 "hot" 3-point shots in the 2016-17 season.
+On the X-axis we have the total number of "hot" 3-point shots attempted, and on the Y-axis we have hot/cold differential.
+A positive hot/cold differential means that that player’s "hot" 3-point shooting percentage is better than his "cold" 3-point shooting percentage.
 
 <div class="svgholder">
   <svg id="g1"></svg>
 </div>
 
-The biggest question this graph poses for me is: what is C.J. McCollum doing, or what are Kyle Korver and Channing Frye not doing that sets them so drastically apart in this distribution?
-Both are attempting the same number of “hot" 3-point shots, but McCollum, ludicrously, was 15.46% more likely to make his “hot" 3-point shots than his “cold" ones.
+The biggest question created by this graph is: what is C.J. McCollum doing, or what are Kyle Korver and Channing Frye _not_ doing, that sets them so drastically apart in this distribution?
+Both are attempting the same number of "hot" 3-point shots, but McCollum, ludicrously, was 15.46% more likely to make his "hot" 3-point shots than his "cold" ones.
 **McCollum shot 55.77% from 3 when he was hot!**
-Meanwhile, Korver and Frye were both more than 20% _less_ likely to hit their “hot" shots.
+Meanwhile, Korver and Frye were both more than 20% _less_ likely to hit their "hot" shots.
 Is this because Korver and Frye are traditionally used as spot up shooters on their team, while McCollum is able to generate his own shots off the dribble when he gets hot?
 
-Or is this just an aberration due to small sample size? We can see clearly in the graph above that as the number of “hot" 3-point shots attempted by a player increases, the hot/cold 3-point differential appears to shrink.
-However, there is likely selection bias underlying this observation, as the most consistent 3-point shooters in the world are the ones who have the green light to attempt as many 3-point shots as they can.
+Or is this just an aberration due to small sample size? We can see clearly in the graph above that as the number of "hot" 3-point shots attempted by a player increases, the hot/cold 3-point differential appears to shrink.
+However, there is likely selection bias underlying this trend, as the most consistent 3-point shooters in the world (i.e. the ones with the smallest hot/cold differentials) are likely the ones who have the green light to attempt as many 3-point shots as they can.
 
 Looking at the dataset as a whole, it is definitely more rare to be a good "hot" 3-point shooter.
-Of the 108 NBA players who attempted >= 250 3s in the 2016-17 season, only 38 had positive hot/cold differentials, with the remaining 70 players being worse at shooting "hot" 3s than “cold" ones.
+Of the 108 NBA players who attempted >= 250 3s in the 2016-17 season, only 38 had positive hot/cold differentials, with the remaining 70 players being worse at shooting "hot" 3s than "cold" ones.
 This follows the intuition that defense would likely tighten up around a player that had just made a 3-point shot, because defenders would be more cognizant of the shooter as a threat during the next offensive possession.
 
 Unsurprisingly, the elite shooters who attempted >= 500 3-point shots in the season (there are only 11 players in this set) have less variance between their "hot" and "cold" 3-point shot performance.
@@ -60,22 +56,22 @@ One player sticks out in this group for being especially atrocious at shooting "
 However, Beal has the best "cold" 3-point shooting percentage of the group, nearly a full percentage point better than Stephen Curry, the next best.
 Beal also took the least "hot" 3s of this group, so perhaps he knows it’s a weakness of his.
 
-Finally, Joe Johnson did indeed “get hot" in 2016-17 – his hot/cold differential was +6.8%.
+Finally, Joe Johnson did indeed "get hot" in 2016-17 – his hot/cold differential was +6.8%.
 However, Johnson did not make it into the graph as he only attempted 19 "hot" 3s in the entire season (out of 258 3-point shots attempted).
 
 ## Going bigger
 
 Fascinated by these results, and in a state of disbelief over the McCollum result, I decided to expand my analysis to encompass a wider range of data.
-I reached back to the start of the modern era in the NBA (the 1998-99 season, according to Wikipedia) and built a new spreadsheet with every game that had taken place from then up to the end of the 2016-17 season, averaging player performance over the number of seasons they appeared in.
+I reached back to the start of the modern era in the NBA (the 1998-99 season, [according to Wikipedia][me]) and built a new spreadsheet with every game that had taken place from then up to the end of the 2016-17 season, averaging player performance over the number of seasons they appeared in.
 
 The first person I looked for in this dataset was Ray Allen.
-His -0.75% hot/cold differential on an average of 48.06 “hot" 3-point shot attempts per season tell a story of an elite spot up shooter who rarely ran the point but instead was targeted frequently by his teammates and knew how to elude defenses even when they knew what was coming.
+His -0.75% hot/cold differential on an average of 48.06 "hot" 3-point shot attempts per season tell a story of an elite spot up shooter who rarely ran the point but instead was targeted frequently by his teammates and knew how to elude defenses even when they knew what was coming.
 "Hot" shots only make up 11.37% of all of Allen’s 3-point attempts.
 
 Stephen Curry, by contrast, frequently brings the ball up the court and initiates his team’s offense, and always has the green light to attempt a 3.
-This helps explain why, despite the fact that Curry has attempted two-thirds as many 3-point shots as Ray Allen (an incredible feat in and of itself, given that Curry has only played 8 full seasons compared to Allen’s 19), Curry has already eclipsed the number of “hot" 3s Allen attempted in his whole career.
+This helps explain why, despite the fact that Curry has attempted two-thirds as many 3-point shots as Ray Allen (an incredible feat in and of itself, given that Curry has only played 8 full seasons compared to Allen’s 19), Curry has already eclipsed the number of "hot" 3s Allen attempted in his whole career.
 "Hot" shots make up 18.43% of all of Curry’s 3-point attempts.
-In the graph below, you can see just how much of an outlier Curry is in terms of the raw number of “hot" 3-point shots he attempts.
+In the graph below, you can see just how much of an outlier Curry is in terms of the raw number of "hot" 3-point shots he attempts.
 
 <div class="svgholder">
   <svg id="g2"></svg>
@@ -83,16 +79,17 @@ In the graph below, you can see just how much of an outlier Curry is in terms of
 
 I think that more than anything, my analysis here simply points to the increasing number of 3-point shots overall that are attempted each season in the NBA.
 It is telling that Ray Allen, long considered the best 3-point shooter in NBA history, is not even close to a leader in terms of "hot" 3s attempted.
-**This, to me, signals that players like Curry, Klay Thompson, Damian Lillard, and J.R. Smith are an entirely new type of basketball player that has emerged in the past 10-15 years.**
+**This, to me, signals that players like Curry, Klay Thompson, Damian Lillard, and J.R. Smith are an entirely new type of NBA basketball player that has only emerged in the last 10-15 years.**
 
-However, if we had to decide one player who is most threatening when "hot," this graph would suggest that Klay Thompson is an outlier in this regard.
+However, if we had to choose one player who is most threatening when "hot," this graph would suggest that Klay Thompson is an outlier in this regard.
 While Danny Green, Kevin Love, and Rodney Hood also appear strong, Thompson stands on his own.
-Nobody even comes close to his hot/cold differential given the number of “hot" 3-point shots he attempts per season.
+Nobody even comes close to his +3.02% hot/cold differential given the number of "hot" 3-point shots he attempts per season.
 
-And, in case you were wondering, Joe Johnson has a lifetime positive hot/cold differential at +1.02% overall.
+And, in case you were wondering, Joe Johnson has a positive lifetime hot/cold differential at +1.02% overall.
 
-If you’d like to look at the data or the code I used to write this post, check out this [github repository][ghr]. Thanks for reading!
+If you’d like to look at the data or the code I used to write this post, check out this [github repository][ghr].
 
+[me]:https://en.wikipedia.org/wiki/National_Basketball_Association#Modern_era
 [ghr]:https://github.com/ianzapolsky/nbastats
 
 
