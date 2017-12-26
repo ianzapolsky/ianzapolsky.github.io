@@ -111,6 +111,7 @@ If you’d like to look at the data or the code I used to write this post, check
 
 .tooltip {
   position: absolute;
+  padding-left: 2px;
   font-size: 12px;
   width: 200px;
   height: 28px;
