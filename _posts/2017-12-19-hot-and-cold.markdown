@@ -43,11 +43,11 @@ Meanwhile, Korver and Frye were both more than 20% _less_ likely to hit their "h
 Is this because Korver and Frye are traditionally used as spot up shooters on their team, while McCollum is able to generate his own shots off the dribble when he gets hot?
 
 Or is this just an aberration due to small sample size? We can see clearly in the graph above that as the number of "hot" 3-point shots attempted by a player increases, the hot/cold 3-point differential appears to shrink.
-However, there is likely selection bias underlying this trend, as the most consistent 3-point shooters in the world (i.e. the ones with the smallest hot/cold differentials) are likely the ones who have the green light to attempt as many 3-point shots as they can.
+However, there is likely selection bias underlying this trend, as the most consistent 3-point shooters in the world (i.e. the ones with the smallest hot/cold differentials) are the ones who have the green light to attempt as many 3-point shots as they can.
 
 Looking at the dataset as a whole, it is definitely more rare to be a good "hot" 3-point shooter.
 Of the 108 NBA players who attempted >= 250 3s in the 2016-17 season, only 38 had positive hot/cold differentials, with the remaining 70 players being worse at shooting "hot" 3s than "cold" ones.
-This follows the intuition that defense would likely tighten up around a player that had just made a 3-point shot, because defenders would be more cognizant of the shooter as a threat during the next offensive possession.
+This follows the intuition that defense would tighten up around a player that had just made a 3-point shot, because defenders would be more cognizant of the shooter as a threat during the next offensive possession.
 
 Unsurprisingly, the elite shooters who attempted >= 500 3-point shots in the season (there are only 11 players in this set) have less variance between their "hot" and "cold" 3-point shot performance.
 There are also more "hot" shooters than expected in this set compared to the >= 250 set.
