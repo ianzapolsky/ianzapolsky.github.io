@@ -27,7 +27,7 @@ layout: page
 </style>
 
 <div style="max-width:440px">
-  <img id="ian-image" src="/assets/ian_king.jpg"></img>
+  <img id="ian-image" src="/assets/ian_king.jpg">
 </div>
 
 Hi, my name is Ian Zapolsky.
