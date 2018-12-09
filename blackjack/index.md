@@ -18,7 +18,7 @@ title: Learn the Blackjack Book
   <li>Click the appropriate button below for each blackjack situation, or use the 'h' (hit), 's' (stand), 'd' (double), and 'p' (split) keys to indicate your choice.
   </li>
 </ul>
-<h3>Acknowledgements</h5>
+<h3>Acknowledgements</h3>
 This tool was built in part with <a href="https://github.com/atomantic/JavaScript-Playing-Cards">automantic's javascript playing card library</a>.
 
 <h2 class="center-align">Dealer Card</h2>
