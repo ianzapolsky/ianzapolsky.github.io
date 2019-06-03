@@ -131,8 +131,8 @@ Well, aside from the argument that losing logs in a function that does important
 
 ```
 cleanup() {
-		# This sleep is critical to illustrate a race condition
-	  sleep 1
+    # This sleep is critical to illustrate a race condition
+    sleep 1
 
     echo "Entering cleanup"
 
@@ -175,7 +175,7 @@ $ echo $?
 
 This trace makes it clear that `cleanup` is exiting early, specifically right after we try to send a message to `STDOUT`. When we print the return code of the script, we see that it exits with code `141`, which in most Linux systems means `SIGPIPE`. What's happening is when the first echo statement in `cleanup` tries to write to `STDOUT`, it encounters a closed pipe (because the redirection and `logger` processes have been killed). This triggers a `SIGPIPE` which, if left unhandled, will cause the script to terminate immediately.
 
-This could be **really serious** if you have a script that performs important work in its cleanup handler. It would also be difficult to track down because the script would not exhibit this bad behavior when killed with the `kill` command . In our case, this bug led to a stale lock file being left around on disk, preventing future instances of the Bash script from running. This ultimately resulted in a delay in one of our data jobs that was caught both by an alert on the age of our lock file, and an alert further down the pipeline.
+This could be **really serious** if you have a script that performs important work in its cleanup handler. It would also be difficult to track down because the script would not exhibit this bad behavior when killed with the `kill` command. In our case, this bug led to a stale lock file being left around on disk, preventing future instances of the Bash script from running. This ultimately resulted in a delay in one of our data jobs that was caught both by an alert on the age of our lock file, and an alert further down the pipeline.
 
 ## Safety first
 
@@ -187,9 +187,9 @@ The first option is to set up a global no-op signal handler on SIGPIPE.
 trap '' PIPE
 ```
 
-This is not my preferred solution, as it has implications on how your script will behave with other Unix programs that a user can pipe together on the command line that are for impossible said user to know about without reading the source code of the script. However, for Bash scripts that are always run as their own standalone programs, say via a CRON job, this can be the simplest choice. 
+This is not my preferred solution, as it has implications on how your script behaves with other Unix programs that a user might pipe together on the command line that are impossible for said user to know about without reading the source code of the script. However, for Bash scripts that are always run as their own standalone programs, say via a CRON job, this can be the simplest choice.
 
-The second and third options are similar. Instead of using `echo` to log from your script, we can define a function to handle logging, and then use some tricks to make our logging resilient to `SIGPIPE`. 
+The second and third options are similar. Instead of using `echo` to log from your script, we can define a function to handle logging, and then use some tricks to make the function resilient to `SIGPIPE`.
 
 ```
 log_safe1() {
@@ -201,9 +201,11 @@ log_safe2() {
 }
 ```
 
-These two log functions are both resilient to `SIGPIPE`. `log_safe1` executes `echo` in a subshell, so that if a `SIGPIPE` is encountered, only the subshell spawned to run echo dies, and the parent script continues on. To be clear, `log_safe1` should be used in conjunction with an `exec` statement that redirects `STDOUT` to write to `logger`. `log_safe2` executes logger directly, so no redirection is needed. Instead, each time your script needs to log something, a new instance of `logger` is created to write that message to `STDOUT`. These options both have the same drawback: they are significantly less performant that simply using `echo` because they incur the cost of spinning up a new process for each logged message.
+`log_safe1` executes `echo` in a subshell, so that if a `SIGPIPE` is encountered, only the subshell spawned to run `echo` dies while the parent continues on. To be clear, `log_safe1` must be used in conjunction with an `exec` statement that redirects `STDOUT` to write to `logger`.
 
-As mentioned above, if you go with `log_safe2`, you don't need to redirect `STDOUT` anymore. However, it's important to keep in mind that if you don't redirect `STDOUT`, you greatly increase the likelihood that some parts of the output produced by your script will not end up in syslog. For example, if your script calls another script, and *that* script sends output to `STDOUT` by some means other than by calling `log_safe2`, that output will not make it into syslog. 
+`log_safe2` executes logger directly, so no redirection is needed. Instead, each time your script needs to log something, a new instance of `logger` is created to write that message to `STDOUT`. These options both have the same drawback: they are significantly less performant than using `echo` with redirection because they incur the cost of spinning up a new process for each logged message.
+
+As mentioned above, if you go with `log_safe2`, you don't need to redirect `STDOUT` anymore. However, it's important to keep in mind that if you don't redirect `STDOUT`, you leave yourself vulnerable to missing log data in other ways. For example, if your script calls another script, and *that* script sends output to `STDOUT` by some means other than by calling `log_safe2`, that output will not make it into syslog.
 
 The fourth and final option changes the redirection itself. Instead of sending `STDOUT` of our script directly to `logger`, we can send it instead to an instance of `tee`, run with the `-i` flag to ignore interrupt signals. This looks like: 
 
@@ -213,4 +215,4 @@ exec 1> >(tee -i >(/usr/bin/logger -s -t "$(basename $0)") > /dev/null)
 
 When we do this, `tee` handles any encountered `SIGPIPE` signals for us, essentially protecting our script from dying if the logger process dies. This option also adds performance overhead to logging.
 
-So there you have it. Bash is often bemoaned for its lack of tooling, sensical type system, introspection, and other language features we now consider to be standard. However, sometimes it's the right tool for the job, especially if you're using it as a wrapper to call into other Unix programs like sed, awk, grep, xargs, and grep. Hopefully this post will help others avoid the same  pitfall we encountered!
+So there you have it. Bash is often bemoaned for its lack of tooling, sensical type system, introspection, and other language features we now consider to be standard. However, sometimes it's the right tool for the job, especially if you're using it as a wrapper to call into other Unix programs like sed, awk, grep, xargs, and grep. Hopefully this post will help others avoid the same pitfall we encountered!
