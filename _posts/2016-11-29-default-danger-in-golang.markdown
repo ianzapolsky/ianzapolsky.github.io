@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "default danger in golang"
-author: "ian zapolsky"
+title: "Default Danger"
 ---
 
 <style>
@@ -15,7 +14,7 @@ author: "ian zapolsky"
 
 Here's a bug:
 
-{% highlight golang %}
+``` golang
 func main() {
     channel := make(chan []byte, 100)
     wg := &sync.WaitGroup{}
@@ -48,7 +47,7 @@ func main() {
 
     wg.Wait()
 }
-{% endhighlight %}
+```
 
 Can you spot it?
 Here's a hint:
@@ -67,7 +66,7 @@ Bad news.
 
 Here's a rewritten version that does what we want:
 
-{% highlight golang %}
+``` golang
 func main() {
     channel := make(chan []byte, 100)
     wg := &sync.WaitGroup{}
@@ -96,4 +95,4 @@ func main() {
 
     wg.Wait()
 }
-{% endhighlight %}
+```

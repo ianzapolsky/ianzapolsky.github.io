@@ -10,8 +10,8 @@ html, body { height: 100%; }
 
 body {
   background-color: #FFF;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, 华文楷体, KaiTi_GB2312, 楷体_GB2312, serif;
+  font-size: 18px;
   line-height: 1.5;
   font-weight: 300;
   background-color: #fdfdfd;
@@ -54,7 +54,6 @@ a:visited { color: #7101A1; }
   display: block;
   color: #333;
   font-size: 26px;
-  letter-spacing: -1px;
   float: left;
   line-height: 56px;
   position: relative;
@@ -71,7 +70,7 @@ a:visited { color: #7101A1; }
 .site-nav .page-link {
   margin-left: 20px;
   color: #727272;
-  letter-spacing: -.5px;
+  font-size: 23px;
 }
 
 /* Site footer */
@@ -84,7 +83,6 @@ a:visited { color: #7101A1; }
 .footer-heading {
   font-size: 18px;
   font-weight: 300;
-  letter-spacing: -.5px;
   margin-bottom: 15px;
 }
 
@@ -119,7 +117,6 @@ a:visited { color: #7101A1; }
 .site-footer li,
 .site-footer p {
   font-size: 15px;
-  letter-spacing: -.3px;
   color: #828282;
 }
 
@@ -153,7 +150,6 @@ a:visited { color: #7101A1; }
 
 .posts .post-link {
   font-size: 24px;
-  letter-spacing: -1px;
   line-height: 1;
 }
 
@@ -171,7 +167,6 @@ a:visited { color: #7101A1; }
 
 .post-header h1 {
   font-size: 42px;
-  letter-spacing: -1.75px;
   line-height: 1;
   font-weight: 300;
 }
@@ -196,7 +191,7 @@ canvas {
   -webkit-border-radius: 5;
   -moz-border-radius: 5;
   border-radius: 5px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, 华文楷体, KaiTi_GB2312, 楷体_GB2312, serif;
   color: #ffffff;
   font-size: 16px;
   padding: 10px;
@@ -228,17 +223,14 @@ canvas {
 
 .post-content h2 {
   font-size: 32px;
-  letter-spacing: -1.25px;
 }
 
 .post-content h3 {
   font-size: 26px;
-  letter-spacing: -1px;
 }
 
 .post-content h4 {
   font-size: 20px;
-  letter-spacing: -1px;
 }
 
 .post-content li > h4 {
@@ -258,16 +250,18 @@ canvas {
 .post-content ul,
 .post-content ol { padding-left: 20px; }
 
-.post pre,
-.post code {
+.post pre {
   overflow-x: scroll;
-  border: 1px solid #d5d5e9;
-  background-color: #eef;
-  padding: 8px 12px;
+  background-color: #eee;
+  padding: 10px 18px;
   font-size: 15px;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;;
 }
 
-.post code { padding: 1px 2px; }
+.post code {
+  font-size: 15px;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;;
+}
 
 .post ul,
 .post ol { margin-left: 1.35em; }

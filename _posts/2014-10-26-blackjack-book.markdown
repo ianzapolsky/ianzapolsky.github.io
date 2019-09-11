@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "learn how to play blackjack"
-author: "ian zapolsky"
+title: "Learn How to Play Blackjack"
 ---
 
 ## Blackjack strategy

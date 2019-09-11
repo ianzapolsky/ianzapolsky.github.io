@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "bash logging traps"
-author: "ian zapolsky"
+title: "Bash Logging Traps"
 ---
 
 At AppNexus, we use Bash to do some important things, and whenever you have a system that does important things, it's critical to get logging right so that you can find out what happened when something goes wrong.

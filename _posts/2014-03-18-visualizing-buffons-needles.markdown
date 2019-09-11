@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "visualizing Buffon's needles"
-author: "ian zapolsky"
+title: "Visualizing Buffon's Needles"
 ---
 
 <script src="/js/src/painter.js" type="text/javascript"></script>

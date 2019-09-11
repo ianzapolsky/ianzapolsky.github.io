@@ -1,6 +1,6 @@
-name: ian zapolsky
-markdown: redcarpet
-highlighter: true
+name: Ian Zapolsky
+markdown: kramdown
+highlighter: rouge
 description: "Ian Zapolsky's homepage and blog."
 url: "ianzapolsky.com"
 permalink: /posts/:title/

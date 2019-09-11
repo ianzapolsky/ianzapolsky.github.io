@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "foulmouthed alexa"
-author: "ian zapolsky"
+title: "Foulmouthed Alexa"
 ---
 
 ## y u bleep?

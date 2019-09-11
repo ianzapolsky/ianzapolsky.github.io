@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "first commit..."
-author: "ian zapolsky"
+title: "First commit..."
 ---
 
 ## Welcome to my website and blog!

@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "art every day"
-author: "ian zapolsky"
+title: "Art Every Day"
 ---
 
 ## Use case

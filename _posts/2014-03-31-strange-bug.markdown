@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "a strange bug"
-author: "ian zapolsky"
+title: "A Strange Bug"
 ---
 
 ## The setup
@@ -29,7 +28,7 @@ uses the ssh protocol to copy files between hosts on a network.
 My scp command looked like this, using the "-r" option to recursively copy the 
 entire directory called ".dotfiles":
 
-```
+``` bash
 scp -r ~/.dotfiles iaz2105@clic.cs.columbia.edu:~/.
 ```
 
@@ -81,7 +80,7 @@ in our `.bashrc` in an if statement as shown below, they will only be executed
 when our ssh session is interactive, or when there is a human on the other end 
 of the line (instead of, say, an instance of the scp program).
 
-```
+``` bash
 if [ "$SSH_TTY" ]
 then
   echo 'xyz'

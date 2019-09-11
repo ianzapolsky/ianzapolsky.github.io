@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "hot and cold"
-author: "ian zapolsky"
+title: "Hot and Cold"
 ---
 
 While watching the Utah Jazz lose to the Golden State Warriors in the first round of the 2017 NBA playoffs, I made a hypothesis that Joe Johnson was one of the 3-point shooters most capable of "getting hot" in the league.
