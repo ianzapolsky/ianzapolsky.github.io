@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "First commit..."
+title: "First Commit"
 ---
 
 ## Welcome to my website and blog!
