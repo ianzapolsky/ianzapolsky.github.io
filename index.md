@@ -26,7 +26,7 @@ layout: page
 }
 </style>
 
-<div style="max-width:440px">
+<div style="max-width:430px">
   <img id="ian-image" src="/assets/ian.jpg">
 </div>
 
