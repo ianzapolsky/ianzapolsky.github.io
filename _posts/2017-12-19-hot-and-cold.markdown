@@ -17,10 +17,11 @@ I downloaded play-by-play data for the 2016-17 NBA season, and then set about ca
 
 A quick note about the definition of "game time" as it is used above: in my play-by-play dataset, I get the quarter number and game clock reading with each game event.
 I converted these data points to a continuous range of seconds, from 0 ("Q1 12:00") to 2880 ("Q4 00:00"), the formula for which is:
-{% highlight golang %}
-    (60 * (12 * (period_number - 1 ))) +
-    ((12 * 60) - ((60 * game_clock_minutes) + game_clock_seconds))
-{% endhighlight %}
+
+``` golang
+(60 * (12 * (period_number - 1 ))) +
+((12 * 60) - ((60 * game_clock_minutes) + game_clock_seconds))
+```
 
 For example: "Q1 11:45" converts to 15, because 15 seconds of game time have elapsed at this point.
 "Q4 00:05" converts to 2875 because all but 5 seconds of game time have elapsed.

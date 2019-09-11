@@ -9,7 +9,7 @@ The strategy we use to log from Bash is outlined in [this blog post](https://urb
 
 The code to achieve this looks like this:
 
-```
+``` bash
 #!/bin/bash
 
 exec 1> >(/usr/bin/logger -s -t "$(basename $0)")
@@ -31,7 +31,7 @@ It is a common pattern in our Bash scripts to trigger some cleanup work if the s
 
 In this example, we set up a handler for the `INT` signal, so that if we are killed during execution, we execute the `cleanup` function:
 
-```
+``` bash
 #!/bin/bash
 
 exec 1> >(/usr/bin/logger -s -t "$(basename $0)")
@@ -104,7 +104,7 @@ Because the logger process is the program that actually writes messages to `STDO
 
 To verify this theory, let's make the following small change to `cleanup` to make it to write to `STDERR` instead of `STDOUT`, so that we avoid piping output through `logger`:
 
-```
+``` bash
 cleanup() {
     # Do something really important
     echo "Done with cleanup!" >&2
@@ -128,7 +128,7 @@ So far the effects of this behavior we have outlined seem fairly innocuous. Our 
 
 Well, aside from the argument that losing logs in a function that does important things constitutes a serious failure in its own right, consider the following rewritten `cleanup`:
 
-```
+``` bash
 cleanup() {
     # This sleep is critical to illustrate a race condition
     sleep 1
@@ -182,7 +182,7 @@ So, let's talk about solutions. There are a couple interesting ways to get aroun
 
 The first option is to set up a global no-op signal handler on SIGPIPE.
 
-```
+``` bash
 trap '' PIPE
 ```
 
@@ -190,7 +190,7 @@ This is not my preferred solution, as it has implications on how your script beh
 
 The second and third options are similar. Instead of using `echo` to log from your script, we can define a function to handle logging, and then use some tricks to make the function resilient to `SIGPIPE`.
 
-```
+``` bash
 log_safe1() {
    (echo $1)
 }
@@ -208,7 +208,7 @@ As mentioned above, if you go with `log_safe2`, you don't need to redirect `STDO
 
 The fourth and final option changes the redirection itself. Instead of sending `STDOUT` of our script directly to `logger`, we can send it instead to an instance of `tee`, run with the `-i` flag to ignore interrupt signals. This looks like: 
 
-```
+``` bash
 exec 1> >(tee -i >(/usr/bin/logger -s -t "$(basename $0)") > /dev/null)
 ```
 

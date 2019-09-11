@@ -9,18 +9,18 @@ define([
     el: '.site-footer',
 
     quotes: [
-      'The amount of useful invention you do is directly proportional to the number of experiments you can run per week per month per year. - <strong>Jeff Bezos</strong>',
-      'Premature optimization is the root of all evil. - <strong>Donald Knuth</strong>',
-      'Pretend to be completely in control and people will assume that you are. - <strong>Nolan Bushnell</strong>',
-      'You can please some of the people, some of the time. - <strong>Steve Jobs</strong>',
-      'The best way to predict the future is to invent it. - <strong>Alan Kay</strong>',
-      'The journey is the reward. - <strong>Steve Jobs</strong>',
-      "It's not about money... it's the willingness to outwork and outlearn everyone. - <strong>Mark Cuban</strong>",
-      'As technology becomes more generic and less expensive, the leverage point becomes more in the people... - <strong>Mark Zuckerberg</strong>',
-      'If things are not failing, you are not innovating enough. - <strong>Elon Musk</strong>',
-      "It's better to be a pirate than to join the navy. - <strong>Steve Jobs</strong>",
-      'Violence is the last refuge of the incompetent. - <strong>Salvor Hardin</strong>',
-      'There is no art without intention. - <strong>Duke Ellington</strong>'
+      '<i>The amount of useful invention you do is directly proportional to the number of experiments you can run per week per month per year.</i><br><strong>Jeff Bezos</strong>',
+      '<i>Premature optimization is the root of all evil.</i><br><strong>Donald Knuth</strong>',
+      '<i>Pretend to be completely in control and people will assume that you are.</i><br><strong>Nolan Bushnell</strong>',
+      '<i>You can please some of the people, some of the time.</i><br><strong>Steve Jobs</strong>',
+      '<i>The best way to predict the future is to invent it.</i><br><strong>Alan Kay</strong>',
+      '<i>The journey is the reward.</i><br><strong>Steve Jobs</strong>',
+      "<i>It's not about money... it's the willingness to outwork and outlearn everyone.</i><br><strong>Mark Cuban</strong>",
+      '<i>As technology becomes more generic and less expensive, the leverage point becomes more in the people...</i><br><strong>Mark Zuckerberg</strong>',
+      '<i>If things are not failing, you are not innovating enough.</i><br><strong>Elon Musk</strong>',
+      "<i>It's better to be a pirate than to join the navy.</i><br><strong>Steve Jobs</strong>",
+      '<i>Violence is the last refuge of the incompetent.</i><br><strong>Salvor Hardin</strong>',
+      '<i>There is no art without intention.</i><br><strong>Duke Ellington</strong>'
     ],
 
     seen: [],
