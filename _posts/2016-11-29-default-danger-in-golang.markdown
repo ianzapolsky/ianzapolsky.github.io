@@ -53,7 +53,7 @@ func main() {
 Can you spot it?
 Here's a hint:
 
-<img id="ian-image" src="/assets/perf_screenshot.png"></img>
+<img id="ian-image" src="/assets/perf_screenshot.png">
 
 ## the dreaded default case
 
